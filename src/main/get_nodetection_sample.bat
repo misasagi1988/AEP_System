@@ -1,0 +1,1 @@
+python main.py -g "`6.0.1200_win7X64` <> '9'"
