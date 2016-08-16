@@ -38,6 +38,8 @@ class Get_NoDetection_Sample_Proc(object):
         sample_list = self.util_proc.get_nodetection_sample(self.condition)
         for f in sample_list:
             src_f = os.path.join(self.remote_sample_dir, f)
+            if not os.path.isfile(src_f):
+                continue
             dst_f = os.path.join(self.differ_sample_dir, f)
             open(dst_f, "wb").write(open(src_f, "rb").read())
             self.logger.debug("get no detection sample: %s" % f)
